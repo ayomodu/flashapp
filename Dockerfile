@@ -1,8 +1,8 @@
 FROM python:3.8.10
 
-RUN pip3 install Flask==1.1.2
-
 COPY . /app
+
+RUN pip3 install requirements.txt
 
 WORKDIR /app
 
