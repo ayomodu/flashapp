@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lay
+  labels:
+    app: lay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lay
+  template:
+    metadata:
+      labels:
+        app: lay
+    spec:
+      containers:
+      - name: flaskapp
+        image: ayomodu/flashapp
+        ports:
+        - containerPort: 5000
