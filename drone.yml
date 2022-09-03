@@ -12,7 +12,7 @@ steps:
     DOCKER_PASSWORD:
       from_secret: DOCKER_PASSWORD
   commands:
-  - sleep 60 ## give docker enough time to start
+  - sleep 60 # give docker enough time to start
   - docker build -t $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER .
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker push $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
