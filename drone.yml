@@ -12,7 +12,18 @@ steps:
     DOCKER_PASSWORD:
       from_secret: DOCKER_PASSWORD
   commands:
-  - sleep 5 ## give docker enough time to start
+  - sleep 15 ## give docker enough time to start
   - docker build -t $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER .
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker push $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
+
+# services:
+# - name: docker
+#   image: docker:dind
+#   privileged: true
+#   volumes:
+#   - name: dockersock
+#     path: /var/run
+# volumes:
+# - name: dockersock
+#   temp: {}
