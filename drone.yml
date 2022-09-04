@@ -5,7 +5,10 @@ name: default
 
 steps:
 - name: build-push
-  image: docker:20.10.17-cli
+  image: docker:dind
+  volumes:
+  - name: dockersock
+    path: /var/run
   environment:
     DOCKER_USER:
       from_secret: DOCKER_USER
