@@ -26,6 +26,7 @@ steps:
   commands:
   - sleep 10
   - pip install pyraider
+  - ls && pwd
   - pyraider go -e html pyraider-result.html
   depends_on:
   -  build-push
@@ -35,6 +36,7 @@ steps:
   commands:
   - sleep 10
   - pip install bandit
+  - ls && pwd
   - bandit -r . -f html -o bandpr-rep.html
   depends_on:
   -  build-push
