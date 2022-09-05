@@ -47,8 +47,6 @@ steps:
   settings:
     from: drone@ayomoduapp.com
     recipients_only: true
-    recipients:
-        - ayomodu@gmail.com
     attachment: *.html
   depends_on:
   - pyraider-tests
