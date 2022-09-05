@@ -46,6 +46,7 @@ steps:
   image: drillster/drone-email
   settings:
     from: drone@ayomoduapp.com
+    recipients_only: true
     recipients:
         - ayomodu@gmail.com
     attachment: *.html
