@@ -41,6 +41,13 @@ steps:
   depends_on:
   -  build-push
 
+- name: notify
+  image: drillster/drone-email
+  settings:
+    from: drone@ayomoduapp.com
+    recipients:
+    - ayomodu@gmail.com
+    attachment: *.html
 
 
 
