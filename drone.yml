@@ -22,7 +22,7 @@ steps:
   - docker push $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
 
 - name: pyraider-tests
-  image: $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
+  image: ayomodu/flashapp
   commands:
   - sleep 10
   - pyraider go -e html pyraider-result.html
@@ -30,7 +30,7 @@ steps:
   -  build-push
 
 - name: bandit-tests
-  image: $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
+  image: ayomodu/flashapp
   commands:
   - sleep 10
   - bandit -r lay.py -f html -o bandpr-rep.html
