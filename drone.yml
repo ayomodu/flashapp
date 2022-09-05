@@ -26,11 +26,16 @@ steps:
   commands:
   - sleep 10
   - pyraider go -e html pyraider-result.html
+  depends_on:
+  -  build-push
+
 - name: bandit-tests
   image: $DOCKER_USER/$DRONE_REPO_NAME:$DRONE_BUILD_NUMBER
   commands:
   - sleep 10
   - bandit -r lay.py -f html -o bandpr-rep.html
+  depends_on:
+  -  build-push
 
 
 
