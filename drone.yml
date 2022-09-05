@@ -33,6 +33,7 @@ steps:
 
 - name: bandit-tests
   image: python
+  failure: ignore
   commands:
   - sleep 10
   - pip install bandit
@@ -48,7 +49,9 @@ steps:
     recipients:
     - ayomodu@gmail.com
     attachment: *.html
-
+  depends_on:
+  - pyraider-tests
+  - bandit-tests
 
 
 services:
